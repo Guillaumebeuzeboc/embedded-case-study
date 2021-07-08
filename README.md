@@ -52,7 +52,7 @@ python3 main.py
 
 ## Sequences
 
-![case-study](https://user-images.githubusercontent.com/8608444/124930553-b8814200-e001-11eb-887b-4894c665a88c.jpeg)
+![case-study](https://user-images.githubusercontent.com/8608444/124939559-7fe56680-e009-11eb-9f05-34382f54cf7a.jpeg)
 
 ## Assembler
 
