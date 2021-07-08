@@ -27,8 +27,6 @@ Print the can message you send and the acknowlegement you receive in the format
 
 `Message recieved data: {acknowledgement}`
 
-CAN messages and aknowledgement are array of 4 hexadecimal values
-
 You will have to:
 
 - fork this project to work on it
@@ -54,6 +52,8 @@ python3 main.py
 
 ![case-study](https://user-images.githubusercontent.com/8608444/124930553-b8814200-e001-11eb-887b-4894c665a88c.jpeg)
 
+CAN messages and aknowledgements are array of 4 bytes
+
 ## Assembler
 
 System code: 0x02
@@ -62,15 +62,15 @@ System code: 0x02
 
 | Name         | message[0] | message[1] | message[2] | message[3] |
 | ------------ | ---------- | ---------- | ---------- | ---------- |
-| OPEN_WINDOW  | 0          | 0          | 0          | 2          |
-| CLOSE_WINDOW | 0          | 0          | 0          | 4          |
+| OPEN_WINDOW  | 0x0        | 0x0        | 0x0        | 0x02       |
+| CLOSE_WINDOW | 0x0        | 0x0        | 0x0        | 0x04       |
 
 ### Assembler Acknowledgements
 
 | Name         | message[0] | message[1] | message[2] | message[3] |
 | ------------ | ---------- | ---------- | ---------- | ---------- |
-| OPEN_WINDOW  | 2          | 0          | 0          | 2          |
-| CLOSE_WINDOW | 2          | 0          | 0          | 4          |
+| OPEN_WINDOW  | 0x02       | 0x0        | 0x0        | 0x02       |
+| CLOSE_WINDOW | 0x02       | 0x0        | 0x0        | 0x04       |
 
 ## Cooking zone
 
@@ -80,19 +80,19 @@ System code: 0x04
 
 | Name                 | message[0] | message[1] | message[2] | message[3] |
 | -------------------- | ---------- | ---------- | ---------- | ---------- |
-| FLIP_THE_STRAINER    | 0          | 0          | 0          | 1          |
-| BRING_BOX_TO_FLIPPER | 0          | 0          | 0          | 2          |
-| BOX_TO_ASSEMBLER     | 0          | 0          | 0          | 4          |
-| BOX_TO_SAUCE         | 0          | 0          | 0          | 8          |
+| FLIP_THE_STRAINER    | 0x0        | 0x0        | 0x0        | 0x01       |
+| BRING_BOX_TO_FLIPPER | 0x0        | 0x0        | 0x0        | 0x02       |
+| BOX_TO_ASSEMBLER     | 0x0        | 0x0        | 0x0        | 0x04       |
+| BOX_TO_SAUCE         | 0x0        | 0x0        | 0x0        | 0x08       |
 
 ### Cooking zone Acknowledgements
 
 | Name                 | message[0] | message[1] | message[2] | message[3] |
 | -------------------- | ---------- | ---------- | ---------- | ---------- |
-| FLIP_THE_STRAINER    | 4          | 0          | 0          | 1          |
-| BRING_BOX_TO_FLIPPER | 4          | 0          | 0          | 2          |
-| BOX_TO_ASSEMBLER     | 4          | 0          | 0          | 4          |
-| BOX_TO_SAUCE         | 4          | 0          | 0          | 8          |
+| FLIP_THE_STRAINER    | 0x04       | 0x0        | 0x0        | 0x01       |
+| BRING_BOX_TO_FLIPPER | 0x04       | 0x0        | 0x0        | 0x02       |
+| BOX_TO_ASSEMBLER     | 0x04       | 0x0        | 0x0        | 0x04       |
+| BOX_TO_SAUCE         | 0x04       | 0x0        | 0x0        | 0x08       |
 
 ## Arm
 
@@ -102,15 +102,15 @@ System code: 0x08
 
 | Name                | message[0] | message[1] | message[2] | message[3] |
 | ------------------- | ---------- | ---------- | ---------- | ---------- |
-| STRAINER_TO_FLIPPER | 0          | 0          | 0          | 1          |
-| REPLACE_STRAINER    | 0          | 0          | 0          | 2          |
+| STRAINER_TO_FLIPPER | 0x0        | 0x0        | 0x0        | 0x01       |
+| REPLACE_STRAINER    | 0x0        | 0x0        | 0x0        | 0x02       |
 
 ### Arm Acknowledgements
 
 | Name                | message[0] | message[1] | message[2] | message[3] |
 | ------------------- | ---------- | ---------- | ---------- | ---------- |
-| STRAINER_TO_FLIPPER | 8          | 0          | 0          | 1          |
-| REPLACE_STRAINER    | 8          | 0          | 0          | 2          |
+| STRAINER_TO_FLIPPER | 0x08       | 0x0        | 0x0        | 0x01       |
+| REPLACE_STRAINER    | 0x08       | 0x0        | 0x0        | 0x02       |
 
 ## Box
 
@@ -120,10 +120,10 @@ System code: 0x20
 
 | Name     | message[0] | message[1] | message[2] | message[3] |
 | -------- | ---------- | ---------- | ---------- | ---------- |
-| DROP_BOX | 0          | 0          | 0          | 1          |
+| DROP_BOX | 0x0        | 0x0        | 0x0        | 0x01       |
 
 ### Box Acknowledgements
 
 | Name     | message[0] | message[1] | message[2] | message[3] |
 | -------- | ---------- | ---------- | ---------- | ---------- |
-| DROP_BOX | 20         | 0          | 0          | 1          |
+| DROP_BOX | 0x20       | 0x0        | 0x0        | 0x01       |
