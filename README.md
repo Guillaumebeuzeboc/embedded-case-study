@@ -67,10 +67,10 @@ System code: 0x02
 
 ### Assembler Acknowledgements
 
-| Name         | message[0] | message[1] | message[2] | message[3] |
-| ------------ | ---------- | ---------- | ---------- | ---------- |
-| OPEN_WINDOW  | 0x02       | 0x0        | 0x0        | 0x02       |
-| CLOSE_WINDOW | 0x02       | 0x0        | 0x0        | 0x04       |
+| Name              | message[0] | message[1] | message[2] | message[3] |
+| ----------------- | ---------- | ---------- | ---------- | ---------- |
+| OPEN_WINDOW_DONE  | 0x02       | 0x0        | 0x0        | 0x02       |
+| CLOSE_WINDOW_DONE | 0x02       | 0x0        | 0x0        | 0x04       |
 
 ## Cooking zone
 
@@ -87,12 +87,12 @@ System code: 0x04
 
 ### Cooking zone Acknowledgements
 
-| Name                 | message[0] | message[1] | message[2] | message[3] |
-| -------------------- | ---------- | ---------- | ---------- | ---------- |
-| FLIP_THE_STRAINER    | 0x04       | 0x0        | 0x0        | 0x01       |
-| BRING_BOX_TO_FLIPPER | 0x04       | 0x0        | 0x0        | 0x02       |
-| BOX_TO_ASSEMBLER     | 0x04       | 0x0        | 0x0        | 0x04       |
-| BOX_TO_SAUCE         | 0x04       | 0x0        | 0x0        | 0x08       |
+| Name                      | message[0] | message[1] | message[2] | message[3] |
+| ------------------------- | ---------- | ---------- | ---------- | ---------- |
+| FLIP_THE_STRAINER_DONE    | 0x04       | 0x0        | 0x0        | 0x01       |
+| BRING_BOX_TO_FLIPPER_DONE | 0x04       | 0x0        | 0x0        | 0x02       |
+| BOX_TO_ASSEMBLER_DONE     | 0x04       | 0x0        | 0x0        | 0x04       |
+| BOX_TO_SAUCE_DONE         | 0x04       | 0x0        | 0x0        | 0x08       |
 
 ## Arm
 
@@ -107,10 +107,10 @@ System code: 0x08
 
 ### Arm Acknowledgements
 
-| Name                | message[0] | message[1] | message[2] | message[3] |
-| ------------------- | ---------- | ---------- | ---------- | ---------- |
-| STRAINER_TO_FLIPPER | 0x08       | 0x0        | 0x0        | 0x01       |
-| REPLACE_STRAINER    | 0x08       | 0x0        | 0x0        | 0x02       |
+| Name                    | message[0] | message[1] | message[2] | message[3] |
+| ----------------------- | ---------- | ---------- | ---------- | ---------- |
+| STRAINER_TO_FLIPPE_DONE | 0x08       | 0x0        | 0x0        | 0x01       |
+| REPLACE_STRAINER_DONE   | 0x08       | 0x0        | 0x0        | 0x02       |
 
 ## Box
 
@@ -124,6 +124,6 @@ System code: 0x20
 
 ### Box Acknowledgements
 
-| Name     | message[0] | message[1] | message[2] | message[3] |
-| -------- | ---------- | ---------- | ---------- | ---------- |
-| DROP_BOX | 0x20       | 0x0        | 0x0        | 0x01       |
+| Name          | message[0] | message[1] | message[2] | message[3] |
+| ------------- | ---------- | ---------- | ---------- | ---------- |
+| DROP_BOX_DONE | 0x20       | 0x0        | 0x0        | 0x01       |
