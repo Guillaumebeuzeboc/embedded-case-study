@@ -22,10 +22,11 @@ The code is in Python and use AsyncIO to manage infinite loop and async requests
 The goal of this case study is to reproduce the sequence (the picture below) sending CAN message needed to prepare a dish depending on requeriements. A task receiving an arrow on the sequence needs to wait for the end of the previous task to be started let's call it a requirement. A task can have more than 1 requirement like the BRING_BOX_TO_FLIPPER, so you will have to wait for all the requirements acknowledgement to start this task.
 In your case you are in charge of a part of meal creation, that's why the sequence is short. You will receive STRAINER_TO_FLIPPER from the system Arm and you will have to manage all the tasks until BOX_TO_SAUCE.
 
-- You will have to fork this project to work on it
-- You will have to reproduce the sequence sending can message and waiting for their acknowledgement.
-- You will have to think a system adaptable to more systems
-- you will have to think a system as efficient as you can
+You will have to:
+- fork this project to work on it
+- reproduce the sequence sending can message and waiting for their acknowledgement.
+- create a system adaptable to additionnal systems
+- create a system time efficient
 
 ## Development
 
