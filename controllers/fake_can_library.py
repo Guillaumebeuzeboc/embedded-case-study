@@ -1,5 +1,5 @@
 import asyncio
-from typing import List, Optional, Any
+from typing import List, Any
 
 
 class CAN:
@@ -12,9 +12,29 @@ class CAN:
                 "acknowledgement": ['0x02', '0x0', '0x0', '0x02']
             },
             {
-                "system_code": 0x20,
+                "system_code": 0x02,
+                "can": ['0x0', '0x0', '0x0', '0x04'],
+                "acknowledgement": ['0x02', '0x0', '0x0', '0x04']
+            },
+            {
+                "system_code": 0x04,
                 "can": ['0x0', '0x0', '0x0', '0x01'],
-                "acknowledgement": ['0x20', '0x0', '0x0', '0x01']
+                "acknowledgement": ['0x04', '0x0', '0x0', '0x01']
+            },
+            {
+                "system_code": 0x04,
+                "can": ['0x0', '0x0', '0x0', 'x02'],
+                "acknowledgement": ['0x04', '0x0', '0x0', '0x02']
+            },
+            {
+                "system_code": 0x04,
+                "can": ['0x0', '0x0', '0x0', '0x04'],
+                "acknowledgement": ['0x04', '0x0', '0x0', '0x04']
+            },
+            {
+                "system_code": 0x04,
+                "can": ['0x0', '0x0', '0x0', '0x08'],
+                "acknowledgement": ['0x04', '0x0', '0x0', '0x08']
             },
             {
                 "system_code": 0x08,
@@ -22,35 +42,15 @@ class CAN:
                 "acknowledgement": ['0x08', '0x0', '0x0', '0x01']
             },
             {
-                "system_code": 0x04,
-                "can": ['0x0', '0x0', '0x0', '0x02'],
-                "acknowledgement": ['0x04', '0x0', '0x0', '0x08']
-            },
-            {
-                "system_code": 0x02,
-                "can": ['0x0', '0x0', '0x0', '0x01'],
-                "acknowledgement": ['0x02', '0x0', '0x0', '0x01']
-            },
-            {
-                "system_code": 0x04,
-                "can": ['0x0', '0x0', '0x0', '0x04'],
-                "acknowledgement": ['0x0', '0x0', '0x0', '0x04']
-            },
-            {
-                "system_code": 0x04,
-                "can": ['0x0', '0x0', '0x01', 'x01'],
-                "acknowledgement": ['0x04', '0x0', '0x01', '0x01']
-            },
-            {
                 "system_code": 0x08,
                 "can": ['0x0', '0x0', '0x0', '0x02'],
                 "acknowledgement": ['0x08', '0x0', '0x0', '0x02']
             },
             {
-                "system_code": 0x02,
-                "can": ['0x0', '0x0', '0x0', '0x04'],
-                "acknowledgement": ['0x02', '0x0', '0x0', '0x04']
-            }
+                "system_code": 0x20,
+                "can": ['0x0', '0x0', '0x0', '0x01'],
+                "acknowledgement": ['0x20', '0x0', '0x0', '0x01']
+            },
         ]
 
     def __del__(_) -> None:
@@ -58,18 +58,18 @@ class CAN:
 
     def get_system_name_from_code(_, system_code: int) -> str:
         if system_code == 0x02:
-            return 'Cooking zone'
-        if system_code == 0x04:
             return 'Assembler'
+        if system_code == 0x04:
+            return 'Cooking zone'
         if system_code == 0x08:
             return 'Arm'
         if system_code == 0x20:
             return 'Box'
         if system_code == 0x80:
-            return 'Pi'
+            return 'RaspberryPi'
 
     # Fake can function returning acknowledgement if found and nothing if the combo message and system is unknown
-    async def send_can_message(self, system_address: int, can_message: List[str]) -> Optional[dict[str, Any]]:
+    async def send_can_message(self, system_address: int, can_message: List[str]) -> None:
         for message in self.messages:
             if message["can"] == can_message and system_address == message["system_code"]:
                 print(
@@ -79,4 +79,4 @@ class CAN:
                     "system_address": 0x80,
                     "can_message": message['acknowledgement']
                 })
-        return None
+                break
