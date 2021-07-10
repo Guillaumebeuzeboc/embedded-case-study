@@ -15,7 +15,7 @@ The code is in Python and use AsyncIO to manage infinite loop and async requests
 
 ## Requirements
 
-- Python >= 3.7
+- Python >= 3.7.11
 
 ## Instructions
 
@@ -35,12 +35,6 @@ You will have to:
 - create a system time efficient
 
 ## Development
-
-Install dependencies
-
-```bash
-pip3 install requirements.txt
-```
 
 Start the project
 
