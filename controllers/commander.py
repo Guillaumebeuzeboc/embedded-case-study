@@ -1,5 +1,5 @@
 import asyncio
-from typing import List, Any
+from collections import deque
 
 from .fake_can_library import CAN
 
@@ -9,7 +9,7 @@ ARBITRARY_DURATION = 30
 class Commander:
     def __init__(self) -> None:
         self.loop = asyncio.get_event_loop()
-        self.reception_pcb_messages_queue = []
+        self.reception_pcb_messages_queue = deque()
         self.can = CAN(self.reception_pcb_messages_queue)
         self.loop.create_task(self.service())
         self.loop.create_task(self.fake_pcb_message_reception())
