@@ -1,9 +1,9 @@
 import asyncio
-from typing import List, Any, Deque
+from typing import List, Any, Deque, Dict
 
 
 class CAN:
-    def __init__(self, pcb_messages: Deque[str, Any]) -> None:
+    def __init__(self, pcb_messages: Deque[Dict[str, Any]]) -> None:
         self.pcb_messages = pcb_messages
         self.messages = [
             {
