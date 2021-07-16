@@ -1,10 +1,9 @@
 import asyncio
-from collections import deque
-from typing import List, Any
+from typing import List, Any, Deque
 
 
 class CAN:
-    def __init__(self, pcb_messages: deque[str, Any]) -> None:
+    def __init__(self, pcb_messages: Deque[str, Any]) -> None:
         self.pcb_messages = pcb_messages
         self.messages = [
             {
@@ -24,7 +23,7 @@ class CAN:
             },
             {
                 "system_code": 0x04,
-                "can": ['0x0', '0x0', '0x0', 'x02'],
+                "can": ['0x0', '0x0', '0x0', '0x02'],
                 "acknowledgement": ['0x04', '0x0', '0x0', '0x02']
             },
             {
